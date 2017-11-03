@@ -33,3 +33,9 @@ phpunit.phar
 
 # vagrant runtime
 /.vagrant
+/frontend/runtime/
+/backend/runtime/
+/backend/tests/
+/frontend/tests/
+/common/tests/
+/vagrant/
