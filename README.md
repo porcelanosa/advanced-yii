@@ -1,6 +1,12 @@
 My Yii 2 Advanced Project Template
 ===============================
-**Second Stage - adding Bootstrap 4 to frontend**
+**First Stage - basic setup and adding Yii2-User and Yii2-RBAC**
+
+_Brunch first-stage "git checkout first-stage"_
+
+**Second Stage - adding Bootstrap 4 to frontend and gulp settings**
+
+_Brunch bootstrap-stage "git checkout bootstrap-stage"_
 
 Yii 2 Advanced Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
 developing complex Web applications with multiple tiers.
