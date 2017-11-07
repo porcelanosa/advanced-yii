@@ -8,6 +8,10 @@ _Brunch first-stage "git checkout first-stage"_
 
 _Brunch bootstrap-stage "git checkout bootstrap-stage"_
 
+**Third Stage - setting AdminLTE template for backend**
+
+_Brunch Admin-LTE "git checkout Admin-LTE"_
+
 Yii 2 Advanced Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
 developing complex Web applications with multiple tiers.
 

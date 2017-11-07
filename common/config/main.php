@@ -23,5 +23,6 @@ return [
             'cost' => 12,
             'admins' => ['admin']
         ],
+        
     ],
 ];

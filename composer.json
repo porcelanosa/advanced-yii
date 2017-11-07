@@ -22,7 +22,8 @@
         "dektrium/yii2-rbac": "1.0.0-alpha@dev",
         "twbs/bootstrap": "^4.0.0-beta",
 
-        "bower-asset/font-awesome": "^4.0"
+        "bower-asset/font-awesome": "^4.0",
+        "dmstr/yii2-adminlte-asset": "^2.1"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
