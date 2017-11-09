@@ -23,7 +23,10 @@
         "twbs/bootstrap": "^4.0.0-beta",
 
         "bower-asset/font-awesome": "^4.0",
-        "dmstr/yii2-adminlte-asset": "^2.1"
+        "dmstr/yii2-adminlte-asset": "^2.1",
+        "porcelanosa/yii2-posts": "dev-master"
+
+
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
