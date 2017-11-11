@@ -23,13 +23,13 @@
         "twbs/bootstrap": "^4.0.0-beta",
 
         "bower-asset/font-awesome": "^4.0",
-        "dmstr/yii2-adminlte-asset": "^2.1",
-        "porcelanosa/yii2-posts": "dev-master"
-
 
         "dmstr/yii2-adminlte-asset": "^2.1",
         "voskobovich/yii2-linker-behavior": "^4.0",
-        "karitk-v/yii2-widgets": "^4.0"
+
+        "himiklab/yii2-easy-thumbnail-image-helper": "@dev",
+        "kartik-v/yii2-widgets": "*",
+        "vlucas/phpdotenv": "^2.5@dev"
 
     },
     "require-dev": {

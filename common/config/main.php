@@ -7,13 +7,20 @@
         // set source language to be English
         'sourceLanguage' => 'en-US',
         //'bootstrap'           => ['posts'],
-        'components' => [
+        'components'     => [
+            'db'    => [
+                'class'    => 'yii\db\Connection',
+                'dsn'      => getenv('DB_DSN'),
+                'username' => getenv('DB_USERNAME'),
+                'password' => getenv('DB_PASSWORD'),
+                'charset'  => 'utf8',
+            ],
             'cache' => [
                 'class' => 'yii\caching\FileCache',
             ],
         ],
-        'modules'    => [
-            'user'  => [
+        'modules'        => [
+            'user' => [
                 'class'                  => 'dektrium\user\Module',
                 // you will configure your module inside this file
                 // or if need different configuration for frontend and backend you may
