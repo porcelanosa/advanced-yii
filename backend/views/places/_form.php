@@ -1,10 +1,11 @@
 <?php
     
+    use common\models\Cats;
+    use common\models\Towns;
+    use kartik\widgets\Select2;
+    use yii\helpers\ArrayHelper;
     use yii\helpers\Html;
     use yii\widgets\ActiveForm;
-    use yii\helpers\ArrayHelper;
-    use common\models\Towns;
-    use common\models\Cats;
     
     /* @var $this yii\web\View */
     /* @var $model common\models\Places */
@@ -17,21 +18,12 @@
     <?php $form = ActiveForm::begin(); ?>
     <div class="box-body table-responsive ">
         <div class="row">
-            <div class="col-md-12">
-                <?use kartik\widgets\Select2;
-                $data = [
-                "red" => "red",
-                "green" => "green",
-                "blue" => "blue",
-                "orange" => "orange",
-                "white" => "white",
-                "black" => "black",
-                "purple" => "purple",
-                "cyan" => "cyan",
-                "teal" => "teal"
-                ];
-
-                // Tagging support Multiple
+            <div class="col-md-6">
+                <?=$form->field($model, 'town_id')->dropDownList(ArrayHelper::map(Towns::find()->all(), 'id', 'name'), ['prompt' => 'Город', 'id'=>'townInput'])?>
+            </div>
+            <div class="col-md-6">
+                <?
+                    // Tagging support Multiple
                 $model->cat_id =  ['red', 'green']; // initial value
                 echo $form->field($model, 'cat_ids')->widget(Select2::classname(), [
                     'attribute' => 'cat_ids',
@@ -47,12 +39,9 @@
         </div>
         <div class="row">
             <div class="col-md-3">
-                <?=$form->field($model, 'town_id')->dropDownList(ArrayHelper::map(Towns::find()->all(), 'id', 'name'), ['prompt' => 'Город'])?>
-            </div>
-            <div class="col-md-3">
                 <?=$form->field($model, 'slug')->textInput(['maxlength' => true])?></div>
             <div class="col-md-3">
-                <?=$form->field($model, 'name')->textInput(['maxlength' => true])?>
+                <?=$form->field($model, 'name')->textInput(['id' => 'nameInput', 'maxlength' => true])?>
             </div>
         </div>
         <div class="row">

@@ -5,9 +5,9 @@ $(document).ready(function () {
 		shadowUrl: '/admin/img/markers/marker-shadow.png',
 		iconSize: [25, 41], // size of the icon
 		shadowSize: [41, 41], // size of the shadow
-		iconAnchor: [0, 0], // point of the icon which will correspond to marker's location
-		shadowAnchor: [0, 0],  // the same for the shadow
-		popupAnchor: [12, 4] // point from which the popup should open relative to the iconAnchor
+		iconAnchor: [25, 41], // point of the icon which will correspond to marker's location
+		shadowAnchor: [25, 41],  // the same for the shadow
+		popupAnchor: [-13, -37] // point from which the popup should open relative to the iconAnchor
 	})
 	/* параметры подключения OSM */
 	var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
@@ -33,9 +33,11 @@ $(document).ready(function () {
 	var marker = L.marker(mapCenter, {icon: mainMarkerIcon}).addTo(map)
 
 	function updateMarker (lat, lng) {
+		var name = $('#nameInput').val()
+		var town = $('#townInput').find(':selected').text()
 		marker
 			.setLatLng([lat, lng])
-			.bindPopup('Your location :  ' + marker.getLatLng().toString())
+			.bindPopup('Место:  ' + name + '<br>Город: ' + town)
 			.openPopup()
 		return false
 	}
@@ -54,10 +56,9 @@ $(document).ready(function () {
 
 	var lat = $('#latInput').val()
 	var lng = $('#lngInput').val()
-	if(lat !== 0 && lng!==0 && lat!=='' && lng!=='')
-	{
+	if (lat !== 0 && lng !== 0 && lat !== '' && lng !== '') {
 		updateMarker(lat, lng)
 
-		map.setView([lat, lng],10)
+		map.setView([lat, lng], 16)
 	}
 })
