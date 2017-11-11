@@ -27,6 +27,10 @@
         "porcelanosa/yii2-posts": "dev-master"
 
 
+        "dmstr/yii2-adminlte-asset": "^2.1",
+        "voskobovich/yii2-linker-behavior": "^4.0",
+        "karitk-v/yii2-widgets": "^4.0"
+
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
