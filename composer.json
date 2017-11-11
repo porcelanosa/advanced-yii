@@ -24,10 +24,7 @@
 
         "bower-asset/font-awesome": "^4.0",
         "dmstr/yii2-adminlte-asset": "^2.1",
-        "porcelanosa/yii2-posts": "dev-master"
-
-
-        "dmstr/yii2-adminlte-asset": "^2.1",
+        "porcelanosa/yii2-posts": "dev-master",
         "voskobovich/yii2-linker-behavior": "^4.0",
         "karitk-v/yii2-widgets": "^4.0"
 
