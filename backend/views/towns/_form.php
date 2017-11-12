@@ -1,5 +1,7 @@
 <?php
     
+    use mihaildev\ckeditor\CKEditor;
+    use mihaildev\elfinder\ElFinder;
     use yii\helpers\Html;
     use yii\widgets\ActiveForm;
     
@@ -46,23 +48,43 @@
             <div class="col-md-12">
                 <?=$form->field($model, 'title')->textInput(['maxlength' => true])?>
                 
-                <?=$form->field($model, 'meta_descr')->textInput(['maxlength' => true])?>
+                <?=$form->field($model, 'meta_descr')->textarea(['rows' => 3])?>
                 
-                <?=$form->field($model, 'short_descr')->textarea(['rows' => 6])?>
+                <?=$form->field($model, 'short_descr')->textarea(['rows' => 3])?>
                 
-                <?=$form->field($model, 'descr')->textarea(['rows' => 6])?>
-                
-                <?=$form->field($model, 'link')->textInput(['maxlength' => true])?>
-                
-                <?=$form->field($model, 'image')->textInput(['maxlength' => true])?>
-                
-                <?=$form->field($model, 'sort')->textInput()?>
-                
-                <? /*=$form->field($model, 'status')->textInput()*/ ?>
-                
-                <?=$form->field($model, 'active')->checkbox()?></div>
+                <? /*=$form->field($model, 'descr')->textarea(['rows' => 6])*/ ?>
+                <div class="col-md-6">
+                    <?=$form->field($model, 'descr')->widget(CKEditor::className(), [
+                        'editorOptions' => ElFinder::ckeditorOptions(
+                            [
+                                'elfinder',
+                                'path' => Yii::getAlias('@frontend') . DIRECTORY_SEPARATOR . 'web/images/'
+                            ],
+                            [
+                                'preset' => 'standart',
+                                //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+                                'inline' => false,
+                                //по умолчанию false
+                            ]),
+                    ])
+                    ;?>
+                </div>
+            </div>
         </div>
-
+        <div class="row">
+            <div class="col-md-4">
+                <?=$form->field($model, 'link')->textInput(['maxlength' => true])?><?=$form->field($model, 'sort')->textInput()?>
+            </div>
+            <div class="col-md-4">
+                <?=$form->field($model, 'active')->checkbox()?>
+            </div>
+            <div class="col-md-4">
+                <?
+                    echo $model->showThumb(200, 200);
+                ?>
+                <?=$form->field($model, 'image')->fileInput(['maxlength' => true])?>
+            </div>
+        </div>
     </div>
     <div class="box-footer">
         <?=Html::submitButton('Save', ['class' => 'btn btn-success btn-flat'])?>

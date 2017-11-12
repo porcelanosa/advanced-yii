@@ -2,10 +2,8 @@
     
     namespace common\models;
         
-        use Yii;
-        use yii\db\BaseActiveRecord;
-        use yii\helpers\ArrayHelper;
-        
+        use yii\behaviors\TimestampBehavior;
+    
         /**
          * This is the model class for table "places".
          *
@@ -52,6 +50,7 @@
                             'cat_ids' => 'cats',
                         ],
                     ],
+                    TimestampBehavior::className(),
                 ];
             }
             
@@ -65,7 +64,9 @@
                     [['lng', 'lat'], 'number'],
                     [['cat_ids'], 'safe'],
                     [['short_descr', 'descr'], 'string'],
-                    [['slug', 'name', 'title', 'meta_descr', 'image'], 'string', 'max' => 255],
+                    [['image'], 'safe'],
+                    [['image'], 'file', 'extensions' => ['png', 'jpg', 'jpeg', 'gif'], 'on' => ['insert', 'update']],
+                    [['slug', 'name', 'title', 'meta_descr'], 'string', 'max' => 255],
                 ];
             }
             

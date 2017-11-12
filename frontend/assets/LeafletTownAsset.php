@@ -5,21 +5,19 @@ namespace frontend\assets;
 use yii\web\AssetBundle;
     
     /**
- * Main frontend application asset bundle.
+ * Main backend application asset bundle.
  */
-class AppAsset extends AssetBundle
+class LeafletTownAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/site.css',
+    
     ];
     public $js = [
-        'js/main.js'
+        'js/leaflet-town-page.js',
     ];
     public $depends = [
-        'yii\web\YiiAsset',
-        'common\assets\Bootstrap4',
-        'frontend\assets\LeafletAsset'
+        'frontend\assets\LeafletAsset',
     ];
 }

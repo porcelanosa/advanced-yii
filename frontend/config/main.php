@@ -66,17 +66,8 @@
             'errorHandler' => [
                 'errorAction' => 'site/error',
             ],
-            'urlManager'   => [
-                'enablePrettyUrl' => true,
-                'showScriptName'  => false,
-                'scriptUrl'       => '/index.php',
-                /*'rules' => [
-                    'posts/<post_type_slug>/<cat_slug>/<slug>' => 'posts/default/view',
-                    'posts/<post_type_slug>/<cat_slug>'        => 'posts/default/catview',
-                    'posts/<post_type_slug>'                   => 'posts/default/index',
-                ]*/
-            ],
-            //'urlManager'   => require __DIR__ . '/_urlManager.php',
+            
+            'urlManager'   => require __DIR__ . '/_urlManager.php',
             
             /*
             'urlManager' => [
