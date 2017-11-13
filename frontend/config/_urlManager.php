@@ -35,6 +35,7 @@
                 ],
             
                 // Places
+                'places/getgeo' => 'places/getgeo',
                 [
                     'pattern' => 'places/<slug>',
                     'route' => 'places/view'

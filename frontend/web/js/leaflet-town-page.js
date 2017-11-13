@@ -33,17 +33,31 @@ $(document).ready(function () {
 	var marker = L.marker(mapCenter, {icon: mainMarkerIcon}).addTo(map)
 
 	function updateMarker (lat, lng) {
-		var name = $('#nameInput').val()
-		var town = $('#townInput').find(':selected').text()
 		marker
 			.setLatLng([lat, lng])
-			.bindPopup('Место:  ' + name + '<br>Город: ' + town)
-			.openPopup()
 		return false
 	}
-	if (lat !== 0 && lng !== 0 && lat !== '' && lng !== '') {
-		updateMarker(lat, lng)
 
-		map.setView([lat, lng], 16)
+	var places = ajax.response
+	console.log(places.features.length)
+	if (places.features.length > 0) {
+		var allPlaces = L.geoJson(
+			places,
+			{
+				pointToLayer: function (feature, latlng) {
+					return L.marker(latlng, {icon: mainMarkerIcon}).bindPopup('<a href="/places/' + feature.properties.slug + '">' + feature.properties.name + '</a><br>' + feature.properties.townName).openPopup()
+				}
+			})
+		map.addLayer(allPlaces)
+		map.fitBounds(allPlaces.getBounds(), {padding: [50, 50]})
+	}
+	else {
+		var lat = $('#latInput').val()
+		var lng = $('#lngInput').val()
+		if (lat !== 0 && lng !== 0 && lat !== '' && lng !== '') {
+			updateMarker(lat, lng)
+
+			map.setView([lat, lng], 9)
+		}
 	}
 })

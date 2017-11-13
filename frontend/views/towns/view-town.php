@@ -16,14 +16,24 @@
     
     frontend\assets\LeafletTownAsset::register($this);
 ?>
+<script>
+	var ajax = new XMLHttpRequest()
+    ajax.responseType = 'json'
+	ajax.open('GET', '/places/getgeo?town_id=<?=$town->id?>', true)
+	ajax.send()
+	ajax.onload = function (e) {
+		var places = ajax.response
+	}
+</script>
 <h1><?=$town->name?></h1>
 <div>
     <?=$town->descr?>
 </div>
-
+<input type="hidden" name="lngInput" id="lngInput" value="<?=$town->lng?>">
+<input type="hidden" name="latInput" id="latInput" value="<?=$town->lat?>">
 <h2>Места</h2>
 <ul>
-    <? foreach ($places as $place): ?>
+    <? foreach ($town->places as $place): ?>
         <li><?=Html::a($place->name, Url::toRoute(['/places/view', 'slug' => $place->slug]))?>
         <small><?=$place->cats[0]->name?></small></li>
     <? endforeach; ?>

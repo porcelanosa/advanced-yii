@@ -48,7 +48,13 @@
                     ],
                 ];
             }
-            
+            /**
+             * @return \yii\db\ActiveQuery
+             */
+            public function getPlaces()
+            {
+                return $this->hasMany(Places::className(), ['town_id' => 'id']);
+            }
             /**
              * @inheritdoc
              */
