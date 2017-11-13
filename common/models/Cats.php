@@ -2,8 +2,6 @@
 
 namespace common\models;
 
-use Yii;
-
 /**
  * This is the model class for table "cats".
  *
@@ -39,16 +37,12 @@ class Cats extends \yii\db\ActiveRecord
             [['slug', 'name', 'title', 'meta_descr', 'image'], 'string', 'max' => 255],
         ];
     }
-    
-    public static function getTagByName($name)
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPlaces()
     {
-        $cat = Cats::find()->where(['name' => $name])->one();
-        if (!$cat) {
-            $cat = new Cats();
-            $cat->name = $name;
-            $cat->save(false);
-        }
-        return $cat;
+        return $this->hasMany(Places::className(), ['id' => 'place_id'])->viaTable('places_cats', ['cat_id' => 'id']);
     }
     /**
      * @inheritdoc

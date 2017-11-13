@@ -25,6 +25,9 @@
          * @property int    $sort        Порядок вывода
          * @property int    $status      Статус
          * @property int    $active      Активный
+         *
+         * @property Towns $town Город
+         * @property Cats[] $cats Категории
          */
         class Places extends \yii\db\ActiveRecord
         {

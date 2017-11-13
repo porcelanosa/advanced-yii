@@ -28,6 +28,18 @@
                     'route' => 'towns/view'
                 ],
             
+                // Cats
+                [
+                    'pattern' => 'cats/<slug>',
+                    'route' => 'cats/view'
+                ],
+            
+                // Places
+                [
+                    'pattern' => 'places/<slug>',
+                    'route' => 'places/view'
+                ],
+            
                 // Articles
                /* [ 'pattern' => 'article/index', 'route' => 'article/index' ],
                 [ 'pattern' => 'article/attachment-download', 'route' => 'article/attachment-download' ],
