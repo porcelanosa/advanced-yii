@@ -74,7 +74,12 @@
                     ],
                 ],
             ],
-        
+            'redactor' => [
+                'class' => 'yii\redactor\RedactorModule',
+                'uploadDir' => '@frontend/web/images',
+                'uploadUrl' => '/images',
+                'imageAllowExtensions'=>['jpg','jpeg','png','gif']
+            ],
         ],
         'components'    => [
             'request'      => [

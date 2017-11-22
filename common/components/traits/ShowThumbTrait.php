@@ -8,11 +8,11 @@
     
     namespace common\components\traits;
         
-        use porcelanosa\posts\components\helpers\ThumbHelper as Thumb;
+        use common\components\helpers\ThumbHelper as Thumb;
         use Yii;
         use yii\helpers\FileHelper;
-    
-    
+
+
         trait ShowThumbTrait
         {
             /**

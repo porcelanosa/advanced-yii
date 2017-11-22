@@ -29,7 +29,11 @@
 
         "himiklab/yii2-easy-thumbnail-image-helper": "@dev",
         "kartik-v/yii2-widgets": "*",
-        "vlucas/phpdotenv": "^2.5@dev"
+        "vlucas/phpdotenv": "^2.5@dev",
+        "yiidoc/yii2-redactor": "*",
+        "mihaildev/yii2-ckeditor": "*",
+        "mihaildev/yii2-elfinder": "*",
+        "porcelanosa/yii2-posts": "*"
 
     },
     "require-dev": {
